@@ -31,11 +31,16 @@ let newArr = [];
 
 for(let i = 0; i < 10; i++){
     async function main (){
-        const res = await fetch('https://flynn.boolean.careers/exercises/api/random/mail');
-        const json = await res.json();
-        newArr.push(json.response);
-            displayElement(newArr)
-            console.log(newArr)        
+
+        try{
+            const res = await fetch('https://flynn.boolean.careers/exercises/api/random/mail');
+            const json = await res.json();
+            newArr.push(json.response);
+                displayElement(newArr)  
+            
+        } catch {
+            console.log('Fatality')
+        }
     }
     main() 
 }
